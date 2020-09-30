@@ -31,9 +31,20 @@ jobs:
       - name: Chumbucket +x
         run: sudo chmod +x chumbucket
 
+      - name: Create docs directory
+        run: mkdir docs
+
       - name: Process manifests
         run: |
           for i in includes/*.toml; do
             [ -f "$i" ] || break
-            ./chumbucket $i -o $i.out
+            export manifest_file=$(basename -- "$i")
+
+            ./chumbucket includes/$manifest_file -o docs/${manifest_file%.*}.bundle
           done
+
+      - name: Upload documentations
+        uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: docs/
