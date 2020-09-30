@@ -1,0 +1,12 @@
+[meta]
+name = "Custom Chat Colors"
+description = "Give particular Steam IDs and admin flags custom chat colors and name tags"
+author = "Dr. McKay & JoinedSenses"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/ccc.inc",
+    "include/cccm.inc"
+]

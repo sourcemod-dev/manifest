@@ -1,0 +1,11 @@
+[meta]
+name = "Chat Processor"
+description = "API to hook and change clients name and message strings"
+author = "Drixevel & JoinedSenses"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/chat-processor.inc",
+]

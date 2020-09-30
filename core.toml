@@ -1,0 +1,11 @@
+[meta]
+name = "Core"
+description = "SourceMod Core"
+author = "AlliedModders LLC"
+
+[source]
+type = "Git"
+repository = "https://github.com/alliedmodders/sourcemod.git"
+patterns = [
+	"plugins/include/*.inc"
+]

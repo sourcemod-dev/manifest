@@ -1,0 +1,11 @@
+[meta]
+name = "AutoExecConfig"
+description = "An includefile to read and append to autoconfigs created by sourcemod"
+author = "Impact123"
+
+[source]
+type = "git"
+repository = "https://github.com/Impact123/AutoExecConfig.git"
+patterns = [
+	"autoexecconfig.inc"
+]
