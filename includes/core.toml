@@ -4,7 +4,7 @@ description = "SourceMod Core"
 author = "AlliedModders LLC"
 
 [source]
-type = "Git"
+type = "git"
 repository = "https://github.com/alliedmodders/sourcemod.git"
 patterns = [
 	"plugins/include/*.inc"
