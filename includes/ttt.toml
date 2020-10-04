@@ -1,0 +1,13 @@
+[meta]
+name = "TTT"
+description = "Trouble in terroist town"
+author = "Bara"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/TroubleInTerroristTown/Public.git"
+patterns = [
+    "addons/sourcemod/scripting/include/ttt.inc",
+    "addons/sourcemod/scripting/include/ttt_*.inc"
+]
