@@ -1,7 +1,7 @@
 [meta]
 name = "cURL"
 description = "A free and easy-to-use client-side URL transfer library"
-author = "raydan & JoinedSenses"
+author = "raydan"
 
 [source]
 type = "git"

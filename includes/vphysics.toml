@@ -1,0 +1,11 @@
+[meta]
+name = "VPhysics"
+description = "SDK VPhysics interface"
+author = "asherkin"
+
+[source]
+type = "git"
+repository = "https://github.com/asherkin/vphysics.git"
+patterns = [
+	"vphysics.inc"
+]

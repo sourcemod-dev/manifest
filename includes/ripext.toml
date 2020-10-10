@@ -1,0 +1,13 @@
+[meta]
+name = "RIPExt"
+description = "SourceMod REST in Pawn Extension"
+author = "ErikMinekus"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/ErikMinekus/sm-ripext.git"
+patterns = [
+	"pawn/scripting/include/ripext.inc",
+    "pawn/scripting/include/ripext/*.inc"
+]

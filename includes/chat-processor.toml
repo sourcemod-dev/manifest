@@ -1,7 +1,7 @@
 [meta]
 name = "Chat Processor"
 description = "API to hook and change clients name and message strings"
-author = "Drixevel & JoinedSenses"
+author = "Drixevel"
 
 [source]
 type = "git"
