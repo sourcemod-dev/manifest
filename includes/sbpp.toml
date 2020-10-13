@@ -5,7 +5,6 @@ author = "SourceBans++"
 
 [source]
 type = "git"
-merge = true
 repository = "https://github.com/sbpp/sourcebans-pp.git"
 patterns = [
 	"game/addons/sourcemod/scripting/include/*.inc"
