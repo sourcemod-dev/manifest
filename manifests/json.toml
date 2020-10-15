@@ -1,0 +1,14 @@
+[meta]
+name = "JSON"
+description = "A pure SourcePawn JSON encoder/decoder"
+author = "Clugg"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/clugg/sm-json.git"
+patterns = [
+	"addons/sourcemod/scripting/include/json.inc",
+    "addons/sourcemod/scripting/include/json/*.inc",
+    "addons/sourcemod/scripting/include/json/helpers/*.inc"
+]

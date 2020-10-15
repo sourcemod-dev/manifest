@@ -1,0 +1,11 @@
+[meta]
+name = "Socket"
+description = "SourceMod networking functionality"
+author = "sfPlayer & JoinedSenses"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/sm-ext-socket.git"
+patterns = [
+	"scripting/include/socket.inc"
+]

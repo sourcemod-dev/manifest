@@ -1,0 +1,11 @@
+[meta]
+name = "MoreColors"
+description = "More functions for easy chat color management"
+author = "Dr. MckKay"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/morecolors.inc"
+]

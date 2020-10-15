@@ -1,0 +1,63 @@
+name: Documentation
+
+on:
+  schedule:
+    # Run once every week on Sunday
+    - cron: 0 0 * * 0
+  push:
+    paths:
+      # Or if an include has been updated
+      - 'manifests/*.toml'
+      # Manual trigger
+      - 'trigger.txt'
+
+jobs:
+  documentation:
+    name: Build Documentations
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout manifests
+        uses: actions/checkout@v2
+        with:
+          ref: "toml-format"
+          path: "manifests"
+
+      - name: Checkout bundles
+        uses: actions/checkout@v2
+        with:
+          ref: "bundles"
+          path: "bundles"
+
+      - name: Download Chumbucket
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: "sourcemod-dev/docgen"
+          version: "tags/cb-0.1.0"
+          file: "chumbucket"
+
+      - name: Chumbucket +x
+        run: sudo chmod +x chumbucket
+
+      - name: Process manifests
+        run: |
+          for i in manifests/manifests/*.toml; do
+            [ -f "$i" ] || break
+            export manifest_file=$(basename -- "$i")
+
+            if [ -f "bundles/${manifest_file%.*}.bundle" ]; then
+                ./chumbucket manifests/manifests/$manifest_file -b bundles/${manifest_file%.*}.bundle -o bundles/${manifest_file%.*}.bundle
+            else
+                ./chumbucket manifests/manifests/$manifest_file -o bundles/${manifest_file%.*}.bundle
+            fi
+          done
+
+      - name: Commit changes
+        working-directory: bundles
+        run: |
+          git config --global user.name 'rumblefrog'
+          git config --global user.email 'contact@rumblefrog.me'
+          git add -A
+          git commit -m  'Bundle generations'
+          git push

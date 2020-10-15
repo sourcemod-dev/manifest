@@ -1,0 +1,13 @@
+[meta]
+name = "MultiColors"
+description = "a summary of Colors and More Colors"
+author = "Bara"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/Bara/Multi-Colors.git"
+patterns = [
+	"addons/sourcemod/scripting/include/multicolors.inc",
+    "addons/sourcemod/scripting/include/multicolors/*.inc"
+]

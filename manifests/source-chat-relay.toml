@@ -1,0 +1,11 @@
+[meta]
+name = "Source Chat Relay"
+description = "Communicate between Discord & In-Game, monitor server without being in-game, control the flow of messages and user base engagement!"
+author = "rumblefrog"
+
+[source]
+type = "git"
+repository = "https://github.com/rumblefrog/source-chat-relay.git"
+patterns = [
+	"client/include/Source-Chat-Relay.inc"
+]

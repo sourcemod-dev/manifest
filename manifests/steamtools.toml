@@ -1,0 +1,11 @@
+[meta]
+name = "SteamTools"
+description = "Gives access to a select few SteamWorks functions for SourceMod plugins"
+author = "asherkin"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/steamtools.inc"
+]

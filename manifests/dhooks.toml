@@ -1,0 +1,11 @@
+[meta]
+name = "DHooks"
+description = "Dynamic hooking"
+author = "Drifter321"
+
+[source]
+type = "git"
+repository = "https://github.com/Drifter321/DHooks2.git"
+patterns = [
+	"sourcemod/scripting/include/dhooks.inc"
+]

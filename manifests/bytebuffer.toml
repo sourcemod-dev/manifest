@@ -1,0 +1,11 @@
+[meta]
+name = "ByteBuffer"
+description = "Byte buffer implementation in methodmap & enum struct"
+author = "rumblefrog"
+
+[source]
+type = "git"
+repository = "https://github.com/rumblefrog/SM-ByteBuffer-Inc.git"
+patterns = [
+	"*.inc"
+]

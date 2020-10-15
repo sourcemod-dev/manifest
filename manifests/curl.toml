@@ -1,0 +1,13 @@
+[meta]
+name = "cURL"
+description = "A free and easy-to-use client-side URL transfer library"
+author = "raydan"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/cURL.inc",
+    "include/cURL_header.inc"
+]

@@ -1,0 +1,11 @@
+[meta]
+name = "SBPP"
+description = "SourceBans++"
+author = "SourceBans++"
+
+[source]
+type = "git"
+repository = "https://github.com/sbpp/sourcebans-pp.git"
+patterns = [
+	"game/addons/sourcemod/scripting/include/*.inc"
+]
