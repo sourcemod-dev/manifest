@@ -21,7 +21,7 @@ jobs:
       - name: Checkout manifests
         uses: actions/checkout@v2
         with:
-          ref: "toml-format"
+          ref: "master"
           path: "manifests"
 
       - name: Checkout bundles
