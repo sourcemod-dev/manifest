@@ -7,7 +7,7 @@ on:
   push:
     paths:
       # Or if an include has been updated
-      - 'includes/*.toml'
+      - 'manifests/*.toml'
       # Manual trigger
       - 'trigger.txt'
 
@@ -20,6 +20,15 @@ jobs:
     steps:
       - name: Checkout manifests
         uses: actions/checkout@v2
+        with:
+          ref: "toml-format"
+          path: "manifests"
+
+      - name: Checkout bundles
+        uses: actions/checkout@v2
+        with:
+          ref: "bundles"
+          path: "bundles"
 
       - name: Download Chumbucket
         uses: dsaltares/fetch-gh-release-asset@master
@@ -31,20 +40,24 @@ jobs:
       - name: Chumbucket +x
         run: sudo chmod +x chumbucket
 
-      - name: Create docs directory
-        run: mkdir docs
-
       - name: Process manifests
         run: |
-          for i in includes/*.toml; do
+          for i in manifests/manifests/*.toml; do
             [ -f "$i" ] || break
             export manifest_file=$(basename -- "$i")
 
-            ./chumbucket includes/$manifest_file -o docs/${manifest_file%.*}.bundle
+            if [ -f "bundles/${manifest_file%.*}.bundle" ]; then
+                ./chumbucket manifests/manifests/$manifest_file -b bundles/${manifest_file%.*}.bundle -o bundles/${manifest_file%.*}.bundle
+            else
+                ./chumbucket manifests/manifests/$manifest_file -o bundles/${manifest_file%.*}.bundle
+            fi
           done
 
-      - name: Upload documentations
-        uses: actions/upload-artifact@v2
-        with:
-          name: docs
-          path: docs/
+      - name: Commit changes
+        working-directory: bundles
+        run: |
+          git config --global user.name 'rumblefrog'
+          git config --global user.email 'contact@rumblefrog.me'
+          git add -A
+          git commit -m  'Bundle generations'
+          git push
