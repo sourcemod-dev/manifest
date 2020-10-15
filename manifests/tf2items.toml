@@ -1,0 +1,13 @@
+[meta]
+name = "TF2Items"
+description = "Allows the attributes, level and quality of items to be modified per player as they are given by the server"
+author = "asherkin"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/tf2items.inc",
+    "include/tf2items_stocks.inc"
+]

@@ -1,0 +1,11 @@
+[meta]
+name = "TF2Attributes"
+description = "Exposing SteamWorks functions to SourcePawn"
+author = "FlaminSarge"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/tf2attributes.inc"
+]

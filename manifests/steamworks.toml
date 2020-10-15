@@ -1,0 +1,11 @@
+[meta]
+name = "SteamWorks"
+description = "Exposing SteamWorks functions to SourcePawn"
+author = "KyleS"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/steamworks.inc"
+]

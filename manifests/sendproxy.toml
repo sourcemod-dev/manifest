@@ -1,0 +1,11 @@
+[meta]
+name = "SendProxy"
+description = "Send netprop values to clients without actually changing them on the server"
+author = "Afronanny & SlidyBat"
+
+[source]
+type = "git"
+repository = "https://github.com/SlidyBat/sendproxy.git"
+patterns = [
+	"addons/sourcemod/scripting/include/sendproxy.inc"
+]

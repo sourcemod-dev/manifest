@@ -1,0 +1,11 @@
+[meta]
+name = "SMJansson"
+description = "Wrapper of Jansson"
+author = "Thrawn2"
+
+[source]
+type = "git"
+repository = "https://github.com/JoinedSenses/SourceMod-IncludeLibrary.git"
+patterns = [
+	"include/smjansson.inc"
+]
