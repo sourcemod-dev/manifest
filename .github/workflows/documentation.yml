@@ -56,8 +56,10 @@ jobs:
       - name: Commit changes
         working-directory: bundles
         run: |
-          git config --global user.name 'rumblefrog'
-          git config --global user.email 'contact@rumblefrog.me'
-          git add -A
-          git commit -m  'Bundle generations'
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+              git config --global user.name 'rumblefrog'
+              git config --global user.email 'contact@rumblefrog.me'
+              git add -A
+              git commit -m  'Bundle generations'
+              git push
+          fi
