@@ -34,7 +34,7 @@ jobs:
         uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: "sourcemod-dev/docgen"
-          version: "tags/cb-0.3.2"
+          version: "tags/cb-0.4.0"
           file: "chumbucket"
 
       - name: Chumbucket +x
