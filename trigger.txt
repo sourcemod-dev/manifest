@@ -6,4 +6,4 @@ index file stems!!
 reactivate action
 more metadata!
 production!!!
-deletion handling, thanks ash
+deletion handling, thanks ash!!
