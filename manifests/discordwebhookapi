@@ -1,0 +1,12 @@
+[meta]
+name = "Discord Webhook API"
+description = "An include featuring a well documented, complete wrapper of the Discord Webhook API written in SourcePawn using methodmaps and the RIPExt extension."
+author = "Sarrus"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/Sarrus1/DiscordWebhookAPI.git"
+patterns = [
+	"include/discordWebhookAPI.inc"
+]
