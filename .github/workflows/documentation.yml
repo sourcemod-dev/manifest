@@ -1,6 +1,7 @@
 name: Documentation
 
 on:
+  workflow_dispatch:
   schedule:
     # Run once every week on Sunday
     - cron: 0 0 * * 0
