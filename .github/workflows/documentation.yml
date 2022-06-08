@@ -46,6 +46,7 @@ jobs:
           for i in manifests/manifests/*.toml; do
             [ -f "$i" ] || break
             export manifest_file=$(basename -- "$i")
+            echo "Processing $manifest_file"
 
             if [ -f "bundles/${manifest_file%.*}.bundle" ]; then
                 ./chumbucket generate manifests/manifests/$manifest_file -b bundles/${manifest_file%.*}.bundle -o bundles/${manifest_file%.*}.bundle
