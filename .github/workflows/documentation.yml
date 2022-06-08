@@ -55,6 +55,8 @@ jobs:
             fi
           done
 
+          ls -l bundles/
+
       - name: Process bundle index
         run: |
           if [ -f "bundles/index" ]; then
