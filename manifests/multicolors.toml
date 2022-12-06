@@ -8,6 +8,5 @@ type = "git"
 merge = true
 repository = "https://github.com/Bara/Multi-Colors.git"
 patterns = [
-	"addons/sourcemod/scripting/include/multicolors.inc",
-    "addons/sourcemod/scripting/include/multicolors/*.inc"
+	"addons/sourcemod/scripting/include/multicolors.inc"
 ]
