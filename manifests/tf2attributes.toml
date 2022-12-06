@@ -1,6 +1,6 @@
 [meta]
 name = "TF2Attributes"
-description = "Exposing SteamWorks functions to SourcePawn"
+description = "Set, get and modify TF2 entity attributes"
 author = "FlaminSarge"
 
 [source]
