@@ -1,0 +1,14 @@
+[meta]
+name = "Log4sp"
+description = "A high-performance and feature-rich logging extension"
+author = "F1F88"
+
+[source]
+type = "git"
+merge = true
+repository = "https://github.com/F1F88/sm-ext-log4sp.git"
+patterns = [
+    "sourcemod/scripting/include/log4sp.inc",
+    "sourcemod/scripting/include/log4sp/*.inc",
+    "sourcemod/scripting/include/log4sp/sinks/*.inc"
+]
