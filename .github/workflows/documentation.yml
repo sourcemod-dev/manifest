@@ -20,7 +20,7 @@ on:
 env:
   # sourcemod-dev/docgen commit chumbucket is built from
   # Bundles are purged and regenerated from scratch whenever this changes
-  DOCGEN_REF: "e3b1c42c2e834b0e7ecc6102ecf2e419cca56c40"
+  DOCGEN_REF: "9c54a72a1e69fae15cb9b6615cd6615731652f0c"
 
 permissions:
   contents: write
