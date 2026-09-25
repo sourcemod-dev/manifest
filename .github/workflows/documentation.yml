@@ -103,6 +103,7 @@ jobs:
           fi
 
       - name: Commit changes
+        id: commit
         working-directory: bundles
         run: |
           if [ -n "$(git status --porcelain)" ]; then
@@ -111,4 +112,16 @@ jobs:
               git add -A
               git commit -m  'Bundle generations'
               git push
+              echo "committed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Purge jsDelivr cache
+        if: steps.commit.outputs.committed == 'true'
+        working-directory: bundles
+        run: |
+          # jsDelivr caches branch files, so purge every file changed by the bundle commit
+          git diff --name-only HEAD~1 HEAD | while read -r file; do
+              echo "Purging $file"
+              curl -fsS --retry 3 "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@bundles/${file}"
+              echo
+          done
