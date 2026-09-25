@@ -2,6 +2,11 @@ name: Documentation
 
 on:
   workflow_dispatch:
+    inputs:
+      purge:
+        description: "Purge existing bundles and regenerate from scratch"
+        type: boolean
+        default: false
   schedule:
     # Run once every week on Sunday
     - cron: 0 0 * * 0
@@ -12,6 +17,14 @@ on:
       # Manual trigger
       - 'trigger.txt'
 
+env:
+  # sourcemod-dev/docgen commit chumbucket is built from
+  # Bundles are purged and regenerated from scratch whenever this changes
+  DOCGEN_REF: "e3b1c42c2e834b0e7ecc6102ecf2e419cca56c40"
+
+permissions:
+  contents: write
+
 jobs:
   documentation:
     name: Build Documentations
@@ -20,26 +33,50 @@ jobs:
 
     steps:
       - name: Checkout manifests
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: "master"
           path: "manifests"
 
       - name: Checkout bundles
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: "bundles"
           path: "bundles"
 
-      - name: Download Chumbucket
-        uses: dsaltares/fetch-gh-release-asset@master
+      - name: Checkout docgen
+        uses: actions/checkout@v4
         with:
-          repo: "sourcemod-dev/docgen"
-          version: "tags/cb-0.4.3"
-          file: "chumbucket"
+          repository: "sourcemod-dev/docgen"
+          ref: ${{ env.DOCGEN_REF }}
+          path: "docgen"
+          persist-credentials: false
 
-      - name: Chumbucket +x
-        run: sudo chmod +x chumbucket
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "docgen"
+
+      - name: Build Chumbucket
+        working-directory: docgen
+        run: |
+          cargo build --release --locked -p chumbucket
+          cp target/release/chumbucket ../chumbucket
+
+      - name: Purge bundles
+        env:
+          PURGE: ${{ inputs.purge }}
+        run: |
+          # Bundles from an older docgen are not continued from, as their history and dates may differ
+          if [ "$PURGE" = "true" ] || [ "$(cat bundles/.docgen 2>/dev/null)" != "$DOCGEN_REF" ]; then
+              echo "Purging existing bundles"
+              rm -f bundles/*.bundle bundles/index
+          fi
+
+          echo "$DOCGEN_REF" > bundles/.docgen
 
       - name: Process manifests
         run: |

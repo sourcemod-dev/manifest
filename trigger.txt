@@ -8,3 +8,4 @@ more metadata!
 production!!!
 deletion handling, thanks ash!!!
 purge, regen
+tree-sitter docgen, purge, regen
